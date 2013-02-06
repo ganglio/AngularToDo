@@ -5,7 +5,7 @@
 	"description": "A simple ToDo with AngularJS",
 	"main": "app.js",
 	"scripts": {
-		"start": "node app.js"
+		"start": "node lib/app.js"
 	},
 	"keywords": [
 		"Angular",
@@ -20,6 +20,7 @@
 		"node": ">=0.8"
 	},
 	"dependencies" : {
-		"express": "3.x"
+		"express": "3.x",
+		"jade": "*"
 	}
 }
