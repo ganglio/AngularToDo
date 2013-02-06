@@ -15,8 +15,15 @@ module.exports = function(grunt) {
 		},
 		coffee: {
 			app: {
-				src: [path.join(__dirname,'src','coffee','**','*.coffee')],
+				src: [path.join(__dirname,'src','coffee','app','**','*.coffee')],
 				dest: path.join(__dirname,'public','js'),
+				options: {
+					bare: true
+				}
+			},
+			server: {
+				src: [path.join(__dirname,'src','coffee','server','**','*.coffee')],
+				dest: path.join(__dirname,'lib'),
 				options: {
 					bare: true
 				}
@@ -37,5 +44,5 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-coffee');
 	grunt.loadNpmTasks('grunt-compass');
-	grunt.registerTask('default', 'coffee compass:dev');
+	grunt.registerTask('default', 'coffee:app coffee:server compass:dev');
 };

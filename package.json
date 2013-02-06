@@ -5,7 +5,7 @@
 	"description": "A simple ToDo with AngularJS",
 	"main": "app.js",
 	"scripts": {
-		"start": "node lib/app.js"
+		"start": "node lib/server.js"
 	},
 	"keywords": [
 		"Angular",
