@@ -1,0 +1,25 @@
+
+{
+	"name": "Angular_ToDo",
+	"version": "0.0.1",
+	"description": "A simple ToDo with AngularJS",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"keywords": [
+		"Angular",
+		"ToDo"
+	],
+	"author": {
+		"name":"Roberto Torella",
+		"email":"roberto.torella@gmail.com"
+	},
+	"license": "MIT",
+	"engines": {
+		"node": ">=0.8"
+	},
+	"dependencies" : {
+		"express": "3.x"
+	}
+}
