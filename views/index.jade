@@ -1,5 +1,8 @@
 extends layout
 
+block append scripts
+	script(src='/js/todo.js',type='text/javascript')
+
 block content
 	h1 Todo
 	div(ng-controller="TodoCtrl")
@@ -7,13 +10,13 @@ block content
 			| Still pending: {{todos.length}}
 
 		table.table.table-striped: tbody
-			tr(ng-repeat='todo in todos',class='done-{{todo.done}}')
+			tr(ng-repeat='todo in todos', ng-class='{success: todo.done}')
 				td(width='10px')
 					input(type='checkbox', ng-model='todo.done')
 				td
 					span {{todo.text}}
 
-		a.btn.btn-danger.pull-right(href='', ng-click='clearCompleted()')
+		button.btn.btn-danger.pull-right(ng-click='clearCompleted()', ng-disabled='noMoreDone()')
 			i.icon-trash.icon-white
 
 		form.form-inline(ng-submit='addTodo()')

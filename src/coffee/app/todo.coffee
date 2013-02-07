@@ -1,4 +1,4 @@
-window.TodoCtrl =  ($scope) ->
+@TodoCtrl =  ($scope) ->
 	$scope.todos = []
 
 	$scope.clearCompleted = ->
@@ -10,5 +10,11 @@ window.TodoCtrl =  ($scope) ->
 			$scope.todos.push
 				text: $scope.formTodoText
 				done:false
-			$scope.totalTodos = $scope.todos.length;
-			$scope.formTodoText = "";
+			$scope.totalTodos = $scope.todos.length
+			$scope.formTodoText = ""
+
+	$scope.noMoreDone = ->
+		howmany = $scope.todos.filter (todo) ->
+			return todo.done
+		.length
+		return howmany==0

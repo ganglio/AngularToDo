@@ -1,5 +1,5 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/ganglio\/Desktop\/Ang\/src\/sass\/style\.scss}line{font-family:\000031}}
-.done-true {
-  text-decoration: line-through;
-  color: #c8c8c8;
+/* line 1, ../../src/sass/style.scss */
+.label {
+  margin: 2px;
+  cursor: pointer;
 }

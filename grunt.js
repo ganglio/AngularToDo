@@ -36,7 +36,6 @@ module.exports = function(grunt) {
 				images: path.join(__dirname,'public','images'),
 				linecomments: true,
 				forcecompile: true,
-				debugsass: true,
 				relativeassets: true
 			}
 		}

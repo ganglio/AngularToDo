@@ -1,12 +1,12 @@
 
-window.TodoCtrl = function($scope) {
+this.TodoCtrl = function($scope) {
   $scope.todos = [];
   $scope.clearCompleted = function() {
     return $scope.todos = $scope.todos.filter(function(todo) {
       return !todo.done;
     });
   };
-  return $scope.addTodo = function() {
+  $scope.addTodo = function() {
     if ($scope.formTodoText) {
       $scope.todos.push({
         text: $scope.formTodoText,
@@ -15,5 +15,12 @@ window.TodoCtrl = function($scope) {
       $scope.totalTodos = $scope.todos.length;
       return $scope.formTodoText = "";
     }
+  };
+  return $scope.noMoreDone = function() {
+    var howmany;
+    howmany = $scope.todos.filter(function(todo) {
+      return todo.done;
+    }).length;
+    return howmany === 0;
   };
 };
