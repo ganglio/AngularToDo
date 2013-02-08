@@ -12,13 +12,25 @@ app.factory("Entry", function($resource) {
   });
 });
 
-this.ModuleCtrl = function($scope, Entry) {
-  $scope.entries = Entry.query();
-  return $scope.successToggle = function(element) {
-    if (typeof console !== "undefined" && console !== null) {
-      console.log(element.entry);
-    }
-    element.entry.success = 1 - element.entry.success;
-    return element.entry.$update();
-  };
-};
+this.ModuleCtrl = [
+  "$scope", "Entry", function($scope, Entry) {
+    $scope.entries = Entry.query();
+    $scope.successToggle = function(element) {
+      element.entry.success = 1 - element.entry.success;
+      return element.entry.$update();
+    };
+    return $scope.addEntry = function() {
+      var lastID, newEntry;
+      lastID = Math.max.apply(Math, $scope.entries.map(function(e) {
+        return e.id;
+      }));
+      newEntry = new Entry({
+        id: lastID + 1,
+        name: $scope.entryName,
+        success: 0
+      });
+      newEntry.$save();
+      return $scope.entries.push(newEntry);
+    };
+  }
+];

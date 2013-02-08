@@ -10,12 +10,12 @@ block append scripts
 block content
 	h1 moduleDemo
 	div(ng-controller="ModuleCtrl")
-		span(ng-repeat='entry in entries', ng-class='{"label-success": entry.success}', class='label', ng-click='successToggle(this)') {{entry.name}} ({{entry.success}})
+		span(ng-repeat='entry in entries', ng-class='{"label-success": entry.success}', class='label', ng-click='successToggle(this)') [{{entry.id}}] {{entry.name}} ({{entry.success}})
 
-	form.form-inline(ng-submit='addEntry()')
-			.control-group
-				.controls
-					.input-append
-						input.input-medium(type="text", ng-model="formTodoText", placeholder="add new entry here")
-						button.btn.btn-success(type="submit")
-							i.icon-plus
+		form.form-inline
+				.control-group
+					.controls
+						.input-append
+							input.input-medium(type="text", ng-model="entryName", placeholder="add new entry here")
+							button.btn.btn-success(ng-click='addEntry()')
+								i.icon-plus
